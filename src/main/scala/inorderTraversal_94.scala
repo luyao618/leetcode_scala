@@ -57,12 +57,30 @@ object inorderTraversal_94 {
     res.toList
   }
 
+  def inorderTraversal3(root: TreeNode): List[Int] = {
+    import scala.collection.mutable.Stack
+    val stack = Stack[TreeNode]()
+    var pNode = root
+    var res = ListBuffer[Int]()
+    while (pNode!=null || !stack.isEmpty){
+      if(pNode != null){
+        stack.push(pNode)
+        pNode = pNode.left
+      }else{
+        val node = stack.pop()
+        res = res+=(node.value)
+        pNode = node.right
+      }
+    }
+    res.toList
+  }
+
 
   def main(args: Array[String]): Unit = {
     val root = new TreeNode(1)
     root.right = new TreeNode(2)
     root.right.left = new TreeNode(3)
-    val ls = inorderTraversal2(root)
+    val ls = inorderTraversal3(root)
     for(l <- ls) println(l)
   }
 
