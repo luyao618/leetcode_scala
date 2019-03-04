@@ -52,35 +52,22 @@ object addTwoNumbers_2 {
       }
 
       if (null != temp1 && null != temp2){
-
         var c = temp1.x + temp2.x + a
-
         a=0
-
         if (c >= 10) {
-
           c=c%10;
-
           a = a+1
-
         }
-
         temp.next=new ListNode(c);
-
       }
 
 
       if (null != temp1){
-
         temp1 = temp1.next
-
       }
       if (null != temp2) {
-
         temp2 = temp2.next
-
       }
-
       temp=temp.next;
 
     }
