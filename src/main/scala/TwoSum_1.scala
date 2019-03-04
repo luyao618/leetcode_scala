@@ -17,9 +17,24 @@ object TwoSum_1 {
     return re
   }
 
+  def twoSumMap(nums: Array[Int], target: Int): Array[Int] = {
+    import scala.collection.mutable.Map
+    val data = Map[Int,Int]()
+    val re = Array[Int](2)
+    for(i <- 0 to nums.length-1){
+      val want = target - nums(i)
+      if(data.contains(want)){
+        return Array[Int](i,data.get(want).get)
+      }else{
+        data+=(nums(i) -> i)
+      }
+    }
+    return re
+  }
+
   def main(args: Array[String]): Unit = {
     val re = Array[Int](2, 7, 11, 15)
-    val rrr = twoSum(re,18)
+    val rrr = twoSumMap(re,18)
     for(r <- rrr){
       println(r)
     }
